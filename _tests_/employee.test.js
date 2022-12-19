@@ -6,15 +6,15 @@ test("Can create an new employee.", () => {
 })
 
 test("Testing name.", () => {
-    const name = "Blake";
-    const employeeInstance = new Employee(name);
-    expect(employeeInstance.name).toBe(name);
+    const employee_name = "Blake";
+    const employeeInstance = new Employee(employee_name);
+    expect(employeeInstance.employee_name).toBe(employee_name);
 })
 
 test("Testing name.", () => {
-    const name = "Blake";
-    const employeeInstance = new Employee(name);
-    expect(employeeInstance.name).toBe(name);
+    const employee_name = "Blake";
+    const employeeInstance = new Employee(employee_name);
+    expect(employeeInstance.employee_name).toBe(employee_name);
 })
 
 test("Testing ID.", () => {

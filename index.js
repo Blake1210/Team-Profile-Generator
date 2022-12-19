@@ -1,12 +1,13 @@
 const Manager = require("./lib/Manager.js");
-const Developer = require("./lib/developer.js");
+const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/Intern.js");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-const generateTeam = require("./src/template.js")
+const generateTeam = require("./src/template.js");
+
 
 teamArray = [];
 
@@ -17,14 +18,14 @@ function startInquirer () {
         type: "list",
         message: "What type of employee would you like to add to your team?",
         name: "addEmployeePrompt",
-        choices: ["Manager", "Developer", "Intern", "No more team members are needed."]
+        choices: ["Manager", "Engineer", "Intern", "No more team members are needed."]
       }]).then(function (userInput) {
         switch(userInput.addEmployeePrompt) {
           case "Manager":
             addManager();
             break;
-          case "Deveoper":
-            addDeveloper();
+          case "Engineer":
+            addEngineer();
             break;
           case "Intern":
             addIntern();
@@ -71,36 +72,36 @@ function startInquirer () {
       
       }
 
-      function addDeveloper() {
+      function addEngineer() {
         inquirer.prompt([
           
           {
             type: "input",
             name: "engineerName",
-            message: "What is the developer's name?"
+            message: "What is the engineer's name?"
           },
     
           {
             type: "input",
-            name: "developerId",
-            message: "What is the developer's employee ID number?" 
+            name: "engineerId",
+            message: "What is the engineer's employee ID number?" 
           },
     
           {
             type: "input",
-            name: "developerEmail",
-            message: "What is the developer's email address?"
+            name: "engineerEmail",
+            message: "What is the engineer's email address?"
           },
     
           {
             type: "input",
-            name: "developerGithub",
-            message: "What is the developer's GitHub username?"
+            name: "engineerGithub",
+            message: "What is the engineer's GitHub username?"
           }
     
         ]).then(responses => {
-          const developer = new Developer(responses.developerName, responses.developerId, responses.developerEmail, responses.developerGithub);
-          teamArray.push(developer);
+          const engineer = new Engineer(responses.engineerName, responses.engineerId, responses.engineerEmail, responses.engineerGithub);
+          teamArray.push(engineer);
           createTeam();
         });
     
