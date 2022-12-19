@@ -63,8 +63,8 @@ function runApp () {
             message: "What is the manager's office number?"
           }
       
-        ]).then(answers => {
-          const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+        ]).then(responses => {
+          const manager = new Manager(responses.managerName, responses.managerId, responses.managerEmail, responses.managerOfficeNumber);
           teamArray.push(manager);
           createTeam();
         });
@@ -98,8 +98,8 @@ function runApp () {
             message: "What is the engineer's GitHub username?"
           }
     
-        ]).then(answers => {
-          const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+        ]).then(responses => {
+          const engineer = new Engineer(responses.engineerName, responses.engineerId, responses.engineerEmail, responses.engineerGithub);
           teamArray.push(engineer);
           createTeam();
         });
@@ -133,8 +133,8 @@ function runApp () {
             message: "What school does the intern attend?"
           }
     
-        ]).then(answers => {
-          const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        ]).then(responses => {
+          const intern = new Intern(responses.internName, responses.internId, responses.internEmail, responses.internSchool);
           teamArray.push(intern);
           createTeam();
         });
