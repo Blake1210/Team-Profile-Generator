@@ -1,5 +1,5 @@
 const Manager = require("./lib/Manager.js");
-const Engineer = require("./lib/developer.js");
+const Developer = require("./lib/developer.js");
 const Intern = require("./lib/Intern.js");
 const inquirer = require("inquirer");
 const path = require("path");
@@ -10,7 +10,7 @@ const generateTeam = require("./src/template.js")
 
 teamArray = [];
 
-function runApp () {
+function startInquirer () {
 
     function createTeam () {
       inquirer.prompt([{
@@ -99,8 +99,8 @@ function runApp () {
           }
     
         ]).then(responses => {
-          const engineer = new Engineer(responses.engineerName, responses.engineerId, responses.engineerEmail, responses.engineerGithub);
-          teamArray.push(engineer);
+          const developer = new Developer(responses.developerName, responses.developerId, responses.developerEmail, responses.developerGithub);
+          teamArray.push(developer);
           createTeam();
         });
     
@@ -152,4 +152,4 @@ function runApp () {
     
 }
 
-runApp();
+startInquirer();
