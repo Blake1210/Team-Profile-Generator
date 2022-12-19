@@ -1,5 +1,5 @@
 const Manager = require("./lib/Manager.js");
-const Engineer = require("./lib/Engineer.js");
+const Engineer = require("./lib/developer.js");
 const Intern = require("./lib/Intern.js");
 const inquirer = require("inquirer");
 const path = require("path");
@@ -17,14 +17,14 @@ function runApp () {
         type: "list",
         message: "What type of employee would you like to add to your team?",
         name: "addEmployeePrompt",
-        choices: ["Manager", "Engineer", "Intern", "No more team members are needed."]
+        choices: ["Manager", "Developer", "Intern", "No more team members are needed."]
       }]).then(function (userInput) {
         switch(userInput.addEmployeePrompt) {
           case "Manager":
             addManager();
             break;
-          case "Engineer":
-            addEngineer();
+          case "Deveoper":
+            addDeveloper();
             break;
           case "Intern":
             addIntern();
@@ -71,31 +71,31 @@ function runApp () {
       
       }
 
-      function addEngineer() {
+      function addDeveloper() {
         inquirer.prompt([
           
           {
             type: "input",
             name: "engineerName",
-            message: "What is the engineer's name?"
+            message: "What is the developer's name?"
           },
     
           {
             type: "input",
-            name: "engineerId",
-            message: "What is the engineer's employee ID number?" 
+            name: "developerId",
+            message: "What is the developer's employee ID number?" 
           },
     
           {
             type: "input",
-            name: "engineerEmail",
-            message: "What is the engineer's email address?"
+            name: "developerEmail",
+            message: "What is the developer's email address?"
           },
     
           {
             type: "input",
-            name: "engineerGithub",
-            message: "What is the engineer's GitHub username?"
+            name: "developerGithub",
+            message: "What is the developer's GitHub username?"
           }
     
         ]).then(responses => {
