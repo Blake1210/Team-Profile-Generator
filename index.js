@@ -7,6 +7,7 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const generateTeam = require("./src/template.js");
+//const { nextTick } = require("process");
 
 
 teamArray = [];
@@ -20,19 +21,22 @@ function startInquirer () {
         name: "addEmployeePrompt",
         choices: ["Manager", "Engineer", "Intern", "No more team members."]
       }]).then(function (userResponse) {
-        switch(userResponse.addEmployeePrompt) {
-          case "Manager":
+        const nextPrompt = userResponse.addEmployeePrompt; {
+          if (nextPrompt === "Manager") {
             addManager();
-            break;
-          case "Engineer":
+          };
+
+          if (nextPrompt === "Engineer") {
             addEngineer();
-            break;
-          case "Intern":
+          };
+
+          if (nextPrompt === "Intern") {
             addIntern();
-            break;
-  
-          default:
-            htmlBuilder();
+          }
+
+          if (nextPrompt === "No more team members") {
+            htmlBuilder()
+          }
         }
       })
     }
