@@ -18,9 +18,9 @@ function startInquirer () {
         type: "list",
         message: "What type of employee would you like to add to your team?",
         name: "addEmployeePrompt",
-        choices: ["Manager", "Engineer", "Intern", "No more team members are needed."]
-      }]).then(function (userInput) {
-        switch(userInput.addEmployeePrompt) {
+        choices: ["Manager", "Engineer", "Intern", "No more team members."]
+      }]).then(function (userResponse) {
+        switch(userResponse.addEmployeePrompt) {
           case "Manager":
             addManager();
             break;
@@ -49,13 +49,13 @@ function startInquirer () {
           {
             type: "input",
             name: "managerId",
-            message: "What is the manager's employee ID number?"
+            message: "What is the manager's employee ID?"
           },
       
           {
             type: "input",
             name: "managerEmail",
-            message: "What is the manager's email address?"
+            message: "What is the manager's email?"
           },
       
           {
@@ -84,13 +84,13 @@ function startInquirer () {
           {
             type: "input",
             name: "engineerId",
-            message: "What is the engineer's employee ID number?" 
+            message: "What is the engineer's employee ID?" 
           },
     
           {
             type: "input",
             name: "engineerEmail",
-            message: "What is the engineer's email address?"
+            message: "What is the engineer's email?"
           },
     
           {
@@ -119,13 +119,13 @@ function startInquirer () {
           {
             type: "input",
             name: "internId",
-            message: "What is the intern's employee ID number?" 
+            message: "What is the intern's employee ID?" 
           },
     
           {
             type: "input",
             name: "internEmail",
-            message: "What is the intern's email address?"
+            message: "What is the intern's email?"
           },
     
           {
