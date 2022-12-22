@@ -1,11 +1,14 @@
+// team profile
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/Intern.js");
-const inquirer = require("inquirer");
+// modules
 const path = require("path");
+const inquirer = require("inquirer");
 const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const outputPath = path.join(OUTPUT_DIR, "index.html");
+//generates team
 const generateTeam = require("./src/template.js");
 //const { nextTick } = require("process");
 
@@ -24,19 +27,19 @@ function startInquirer () {
         const nextPrompt = userResponse.addEmployeePrompt; {
           if (nextPrompt === "Manager") {
             addManager();
-          };
+          }
 
-          if (nextPrompt === "Engineer") {
+          else if (nextPrompt === "Engineer") {
             addEngineer();
-          };
+          }
 
-          if (nextPrompt === "Intern") {
+          else if (nextPrompt === "Intern") {
             addIntern();
           }
 
-          if (nextPrompt === "No more team members") {
+           else {
             htmlBuilder()
-          }
+           }
         }
       })
     }
@@ -47,29 +50,30 @@ function startInquirer () {
           {
             type: "input",
             name: "managerName",
-            message: "What is the manager's name?"
+            message: "Enter team manager name:"
           },
       
           {
             type: "input",
             name: "managerId",
-            message: "What is the manager's employee ID?"
+            message: "Enter manager id:"
           },
       
           {
             type: "input",
             name: "managerEmail",
-            message: "What is the manager's email?"
+            message: "Enter manager email:"
           },
       
           {
             type: "input",
             name: "managerOfficeNumber",
-            message: "What is the manager's office number?"
+            message: "Enter manager office number:"
           }
       
-        ]).then(responses => {
-          const manager = new Manager(responses.managerName, responses.managerId, responses.managerEmail, responses.managerOfficeNumber);
+        ]).then(managerInput => {
+          const {managerName, managerId, managerEmail, managerOfficeNumber } = managerInput
+          const manager = new Manager (managerName, managerId, managerEmail, managerOfficeNumber)
           teamArray.push(manager);
           createTeam();
         });
@@ -103,8 +107,9 @@ function startInquirer () {
             message: "What is the engineer's GitHub username?"
           }
     
-        ]).then(responses => {
-          const engineer = new Engineer(responses.engineerName, responses.engineerId, responses.engineerEmail, responses.engineerGithub);
+        ]).then(engineerInput => {
+          const {engineerName, engineerId, engineerEmail, engineerGithub } = engineerInput
+          const engineer = new Engineer (engineerName, engineerId, engineerEmail, engineerGithub)
           teamArray.push(engineer);
           createTeam();
         });
