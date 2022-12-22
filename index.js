@@ -143,8 +143,9 @@ function startInquirer () {
             message: "What school does the intern attend?"
           }
     
-        ]).then(responses => {
-          const intern = new Intern(responses.internName, responses.internId, responses.internEmail, responses.internSchool);
+        ]).then(internInput => {
+          const {internName, internId, internEmail, internSchool } = internInput
+          const intern = new Engineer (internName, internId, internEmail, internSchool)
           teamArray.push(intern);
           createTeam();
         });
