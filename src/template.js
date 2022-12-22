@@ -27,7 +27,7 @@ const generateTeam = team => {
           
           <p><strong>Employee ID: </strong>${engineer.getId()}</p>
           <p><strong>Email: </strong>${engineer.getEmail()}</p>
-          <p><strong>GitHub: </strong>${engineer.getGithub()}</p>
+          <p><strong>GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></p>
           
           </p>
         </div>
